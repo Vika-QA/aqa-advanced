@@ -1,7 +1,7 @@
 const firstName = "Vika";
 const secondName = "QA";
-const greeting = "Hello" + " " + firstName + " " + secondName;
+const greeting = "Hello " + firstName + " and " + secondName;
 console.log(greeting);
 
-const anotherGreeting = `Hello ${firstName} ${secondName}`;
+const anotherGreeting = `Hello ${firstName} and ${secondName}`;
 console.log(anotherGreeting);
