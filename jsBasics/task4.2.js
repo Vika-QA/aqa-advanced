@@ -1,4 +1,4 @@
 const length = 10;
 const width = 12;
-const square = length * width;
-console.log(square);
+const rectangleArea = length * width;
+console.log(rectangleArea);
