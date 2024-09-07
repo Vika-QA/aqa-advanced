@@ -1,7 +1,7 @@
 const averageGrade = 74;
 
 if (averageGrade < 0) {
-  console.log("Оцінка менше 0");
+  console.log("Невірні дані - оцінка менше 0");
 } else if (averageGrade < 60) {
   console.log("Незадовільно");
 } else if (averageGrade <= 70) {

@@ -2,7 +2,7 @@ const averageGrade = 89;
 
 switch (true) {
   case averageGrade < 0:
-    console.log("Оцінка менше 0");
+    console.log("Невірні дані - оцінка менше 0");
     break;
   case averageGrade < 60:
     console.log("Незадовільно");
