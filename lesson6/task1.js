@@ -12,7 +12,6 @@ const rectangleArea = calculateRectangleArea2(5, 10);
 console.log(rectangleArea);
 
 //arrow function
-const calculateRectangleArea3 = (width, height) => {
-  return width * height;
-};
+const calculateRectangleArea3 = (width, height) => width * height;
+
 console.log(calculateRectangleArea3(5, 10));
