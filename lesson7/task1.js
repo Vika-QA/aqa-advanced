@@ -4,11 +4,7 @@ function handleNum(number, callbackEven, callbackOdd) {
     return;
   }
 
-  if (number % 2 == 0) {
-    callbackEven();
-  } else {
-    callbackOdd();
-  }
+  (number % 2 == 0) ? callbackEven() : callbackOdd();
 }
 
 function handleEven() {
