@@ -1,5 +1,5 @@
 import Book from "./Book.mjs";
-import { validateString } from "./validators.mjs";
+import { validateFormat, validateString } from "./validators.mjs";
 
 class EBook extends Book {
   constructor(title, author, year, fileFormat) {
@@ -16,7 +16,7 @@ class EBook extends Book {
     return this._fileFormat;
   }
   set fileFormat(value) {
-    if (validateString(value)) {
+    if (validateString(value) && validateFormat(value)) {
       this._fileFormat = value;
     }
   }
