@@ -47,6 +47,7 @@ class Book {
         theOldestBook = book;
       }
     });
+    return theOldestBook;
   }
 }
 

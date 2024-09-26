@@ -44,7 +44,7 @@ console.log(thirdEBook.year);
 console.log(thirdEBook.fileFormat);
 
 // Static method that search the oldest book
-Book.findTheOldestBook([
+const theOldestBook = Book.findTheOldestBook([
   firstBook,
   secondBook,
   thirdBook,
@@ -52,6 +52,8 @@ Book.findTheOldestBook([
   secondEBook,
   thirdEBook,
 ]);
+console.log(`The oldest book: ${theOldestBook}`);
 
 // Static method that returns an instance of the EBook class
-EBook.createEBookFromBook(secondBook, "TXT");
+const newEBook = EBook.createEBookFromBook(secondBook, "TXT");
+console.log(newEBook);
