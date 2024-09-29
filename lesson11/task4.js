@@ -1,8 +1,8 @@
 class TodoAndUser {
-  async fetchTodo() {
+  async fetchTodo(id) {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos/1"
+        `https://jsonplaceholder.typicode.com/todos/${id}`
       );
 
       if (!response.ok) {
@@ -19,10 +19,10 @@ class TodoAndUser {
     }
   }
 
-  async fetchUser() {
+  async fetchUser(id) {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users/1"
+        `https://jsonplaceholder.typicode.com/users/${id}`
       );
 
       if (!response.ok) {
@@ -44,8 +44,8 @@ class TodoAndUserImproved extends TodoAndUser {
   async fetchPromiseAll() {
     try {
       const [todo, user] = await Promise.all([
-        this.fetchTodo(),
-        this.fetchUser(),
+        this.fetchTodo(4),
+        this.fetchUser(4),
       ]);
       console.log("PROMISE ALL, todo: ", todo);
       console.log("PROMISE ALL, user: ", user);
@@ -57,8 +57,8 @@ class TodoAndUserImproved extends TodoAndUser {
   async fetchPromiseRace() {
     try {
       const todoOrUser = await Promise.race([
-        this.fetchTodo(),
-        this.fetchUser(),
+        this.fetchTodo(4),
+        this.fetchUser(4),
       ]);
       console.log("PROMISE RACE, todo or user: ", todoOrUser);
     } catch (err) {

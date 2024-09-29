@@ -1,8 +1,8 @@
 // TODO
-const fetchTodo = async () => {
+const fetchTodo = async (id) => {
   try {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/1"
+      `https://jsonplaceholder.typicode.com/todos/${id}`
     );
 
     if (!response.ok) {
@@ -21,10 +21,10 @@ const fetchTodo = async () => {
 };
 
 // USER
-const fetchUser = async () => {
+const fetchUser = async (id) => {
   try {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/users/1"
+      `https://jsonplaceholder.typicode.com/users/${id}`
     );
 
     if (!response.ok) {
@@ -45,7 +45,7 @@ const fetchUser = async () => {
 // PROMISE ALL
 const fetchPromiseAll = async () => {
   try {
-    const [todo, user] = await Promise.all([fetchTodo(), fetchUser()]);
+    const [todo, user] = await Promise.all([fetchTodo(3), fetchUser(3)]);
     console.log("PROMISE ALL, todo: ", todo);
     console.log("PROMISE ALL, user: ", user);
   } catch (err) {
@@ -57,7 +57,7 @@ fetchPromiseAll();
 // PROMISE RACE
 const fetchPromiseRace = async () => {
   try {
-    const todoOrUser = await Promise.race([fetchTodo(), fetchUser()]);
+    const todoOrUser = await Promise.race([fetchTodo(3), fetchUser(3)]);
     console.log("PROMISE RACE, todo or user: ", todoOrUser);
   } catch (err) {
     console.log(err);

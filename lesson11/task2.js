@@ -1,6 +1,6 @@
 // TODOS
-const fetchTodo = async () => {
-  return fetch("https://jsonplaceholder.typicode.com/todos/1")
+const fetchTodo = async (id) => {
+  return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(
@@ -17,11 +17,11 @@ const fetchTodo = async () => {
       console.error(error);
     });
 };
-// fetchTodo();
+// fetchTodo(1);
 
 // USERS
-const fetchUser = async () => {
-  return fetch("https://jsonplaceholder.typicode.com/users/1")
+const fetchUser = async (id) => {
+  return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(
@@ -38,10 +38,10 @@ const fetchUser = async () => {
       console.error(error);
     });
 };
-// fetchUser();
+// fetchUser(1);
 
 // PROMISE ALL
-const fetchPromiseAll = Promise.all([fetchTodo(), fetchUser()])
+const fetchPromiseAll = Promise.all([fetchTodo(2), fetchUser(2)])
   .then(([todo, user]) => {
     console.log("PROMISE ALL, todo: ", todo);
     console.log("PROMISE ALL, user: ", user);
@@ -49,7 +49,7 @@ const fetchPromiseAll = Promise.all([fetchTodo(), fetchUser()])
   .catch((err) => console.log(err));
 
 // PROMISE RACE
-const fetchPromiseRace = Promise.race([fetchTodo(), fetchUser()])
+const fetchPromiseRace = Promise.race([fetchTodo(2), fetchUser(2)])
   .then((todoOrUser) => {
     console.log("PROMISE RACE, todo or user: ", todoOrUser);
   })
