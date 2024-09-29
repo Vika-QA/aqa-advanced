@@ -13,7 +13,7 @@ const fetchTodo = async () => {
 
     const todo = await response.json();
 
-    console.log(await todo);
+    console.log(todo);
     return todo;
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ const fetchUser = async () => {
 
     const user = await response.json();
 
-    console.log(await user);
+    console.log(user);
     return user;
   } catch (error) {
     console.log(error);
