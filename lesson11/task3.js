@@ -6,9 +6,7 @@ const fetchTodo = async (id) => {
     );
 
     if (!response.ok) {
-      throw new Error(
-        "Failed internet connection, status code: " + response.status
-      );
+      throw new Error("Failed, status code: " + response.status);
     }
 
     const todo = await response.json();
@@ -28,9 +26,7 @@ const fetchUser = async (id) => {
     );
 
     if (!response.ok) {
-      throw new Error(
-        "Failed internet connection, status code: " + response.status
-      );
+      throw new Error("Failed, status code: " + response.status);
     }
 
     const user = await response.json();

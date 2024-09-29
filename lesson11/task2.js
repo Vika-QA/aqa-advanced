@@ -3,9 +3,7 @@ const fetchTodo = async (id) => {
   return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(
-          "Failed internet connection, status code: " + response.status
-        );
+        throw new Error("Failed, status code: " + response.status);
       }
       return response.json();
     })
@@ -24,9 +22,7 @@ const fetchUser = async (id) => {
   return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(
-          "Failed internet connection, status code: " + response.status
-        );
+        throw new Error("Failed, status code: " + response.status);
       }
       return response.json();
     })
