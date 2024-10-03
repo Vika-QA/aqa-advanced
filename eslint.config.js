@@ -1,6 +1,6 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import stylisticJs from '@stylistic/eslint-plugin-js'
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import stylisticJs from "@stylistic/eslint-plugin-js";
 
 export default [
   {
@@ -8,29 +8,25 @@ export default [
   },
   {
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: globals.node,
     },
   },
   pluginJs.configs.recommended,
   {
     plugins: {
-      '@stylistic/js': stylisticJs
-    }
+      "@stylistic/js": stylisticJs,
+    },
   },
   {
     rules: {
       "no-unused-vars": "error",
       "no-console": "off",
       "no-prototype-builtins": 0,
-      "@stylistic/js/indent": [
-        "error",
-        2,
-        { "SwitchCase": 1 }
-      ],
+      "@stylistic/js/indent": ["error", 2, { SwitchCase: 1 }],
 
-      "space-in-parens":["error", "never"],
+      "space-in-parens": ["error", "never"],
       "eol-last": ["error", "always"],
       "no-trailing-spaces": "error",
       "max-len": ["error", { code: 80 }],
@@ -41,30 +37,27 @@ export default [
         "error",
         "all",
         {
-          "ternaryOperandBinaryExpressions": false,
-          "conditionalAssign": false,
-          "nestedBinaryExpressions": false,
-          "returnAssign": false
+          ternaryOperandBinaryExpressions: false,
+          conditionalAssign: false,
+          nestedBinaryExpressions: false,
+          returnAssign: false,
         },
       ],
       "no-confusing-arrow": [
         "error",
         {
-          "allowParens": true
-        }
-      ]
+          allowParens: true,
+        },
+      ],
     },
   },
   {
     files: ["**/*.mjs"],
     rules: {
-      "indent": "off"
-    }
+      indent: "off",
+    },
   },
   {
-    ignores: ["data/**"]
-  }
+    ignores: ["data/**"],
+  },
 ];
-
-
-
