@@ -37,6 +37,7 @@ const fetchUser = async (id) => {
 // fetchUser(1);
 
 // PROMISE ALL
+// eslint-disable-next-line
 const fetchPromiseAll = Promise.all([fetchTodo(2), fetchUser(2)])
   .then(([todo, user]) => {
     console.log("PROMISE ALL, todo: ", todo);
@@ -45,6 +46,7 @@ const fetchPromiseAll = Promise.all([fetchTodo(2), fetchUser(2)])
   .catch((err) => console.log(err));
 
 // PROMISE RACE
+// eslint-disable-next-line
 const fetchPromiseRace = Promise.race([fetchTodo(2), fetchUser(2)])
   .then((todoOrUser) => {
     console.log("PROMISE RACE, todo or user: ", todoOrUser);
