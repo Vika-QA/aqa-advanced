@@ -1,0 +1,19 @@
+{
+  "name": "lesson13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task1.js",
+  "type": "module",
+  "scripts": {
+    "jest": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0"
+  }
+}
