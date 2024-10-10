@@ -8,7 +8,7 @@ const instance = axios.create(
 //POST Request 1 Not Correct data
 describe("Checking Users", () => {
   test("[POST Negative test] Create new user", async() => {
-    const resp = await instance.post("/Account/v1/User", 
+    const resp = await instance.post("/Account/v1/User",
       {
         userName: "Vika",
         password: "Qa123123" //not correct password, without special characters
@@ -23,8 +23,8 @@ describe("Checking Users", () => {
 
   //POST Request 2 Correct data
   test("[POST Positive test] Create new user", async()=> {
-    const userName = "Vika_QA"  
-    const resp = await instance.post("/Account/v1/User", 
+    const userName = "Vika_QA"
+    const resp = await instance.post("/Account/v1/User",
       {
         "userName": userName,
         "password": "Qa123123!"
@@ -40,10 +40,10 @@ describe("Checking Users", () => {
 })
 
 //GET Request 3 Check list books. Positive Test
-const isbn = "9781449365035" // hardcode to the third book isbn 
+const isbn = "9781449365035" // hardcode to the third book isbn
 describe("Checking books", () => {
   test("[GET Positive test] Check the list of books", async() => {
-    const resp = await instance.get("/BookStore/v1/Books", {validateStatus: () => true}) 
+    const resp = await instance.get("/BookStore/v1/Books", {validateStatus: () => true})
     console.log(resp.data.books)
     const books = resp.data.books
     expect(resp.status).toBe(200)
@@ -76,25 +76,25 @@ describe("Checking books", () => {
   })
 
   //GET Request 4. Check specific book with ISBN
-    test("[GET Positive test] Check specific book", async() => {
-      const resp = await instance.get(`/BookStore/v1/Book?ISBN=${isbn}`, {validateStatus: () => true})
-      const book = resp.data;
-      console.log(book);
+  test("[GET Positive test] Check specific book", async() => {
+    const resp = await instance.get(`/BookStore/v1/Book?ISBN=${isbn}`, {validateStatus: () => true})
+    const book = resp.data;
+    console.log(book);
 
-      expect(resp.status).toBe(200)
-      expect(book.isbn).toBe('9781449365035');
-      expect(book.title).toBe('Speaking JavaScript');
-      expect(book.subTitle).toBe('An In-Depth Guide for Programmers');
-      expect(book.author).toBe('Axel Rauschmayer');
-      expect(book.author).not.toBe('Vasya Petechkin');
-      expect(book.publisher).toBe("O'Reilly Media");
-      expect(book.pages).toBe(460);
-      expect(book.description).toMatch(/JavaScript is everywhere/);
-      expect(book.website).toBe('http://speakingjs.com/')
-    })
+    expect(resp.status).toBe(200)
+    expect(book.isbn).toBe('9781449365035');
+    expect(book.title).toBe('Speaking JavaScript');
+    expect(book.subTitle).toBe('An In-Depth Guide for Programmers');
+    expect(book.author).toBe('Axel Rauschmayer');
+    expect(book.author).not.toBe('Vasya Petechkin');
+    expect(book.publisher).toBe("O'Reilly Media");
+    expect(book.pages).toBe(460);
+    expect(book.description).toMatch(/JavaScript is everywhere/);
+    expect(book.website).toBe('http://speakingjs.com/')
+  })
 
   //POST Responce 5. Check specific book with not correct ISBN
-  test("[GET Negative test] Check specific book ISBN='TEST' ", async()=>{
+  test("[GET Negative test] Check specific book ISBN='TEST'", async()=>{
     const notCorrectIsbn = "TEST"
     const resp = await instance.get(`/BookStore/v1/Book?ISBN=${notCorrectIsbn}`, {validateStatus: () => true})
     console.log(resp.data)
