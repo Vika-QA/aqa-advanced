@@ -4,7 +4,7 @@
   "description": "A Node.js project using Chalk to add color to console",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "jest": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
     "prettier:write": "npx prettier . --write",
     "prettier:check": "npx prettier . --check",
     "lint": "eslint",
