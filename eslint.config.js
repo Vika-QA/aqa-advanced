@@ -1,6 +1,7 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import stylisticJs from "@stylistic/eslint-plugin-js";
+import jest from "eslint-plugin-jest";
 
 export default [
   {
@@ -14,6 +15,7 @@ export default [
     },
   },
   pluginJs.configs.recommended,
+  jest.configs["flat/recommended"],
   {
     plugins: {
       "@stylistic/js": stylisticJs,
@@ -25,13 +27,13 @@ export default [
       "no-console": "off",
       "no-prototype-builtins": 0,
       "@stylistic/js/indent": ["error", 2, { SwitchCase: 1 }],
-
       "space-in-parens": ["error", "never"],
       "eol-last": ["error", "always"],
       "no-trailing-spaces": "error",
-      "max-len": ["error", { code: 80 }],
+      "max-len": ["error", { code: 120 }],
       "no-useless-return": "error",
       "template-curly-spacing": ["error", "never"],
+      "jest/no-conditional-expect": "off",
       "no-undef": "warn",
       "no-extra-parens": [
         "error",
