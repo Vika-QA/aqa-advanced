@@ -63,7 +63,7 @@ describe("Checking btns from the header and footer", () => {
       cy.get('[id="contactsSection"]').find('[class="row"]').should("exist");
     });
     it("Checking social networks", () => {
-      cy.contains("h2", "Contacts");
+      cy.contains("h2", "Contacts").should("be.visible");
       cy.get('[class="contacts_socials socials"]')
         .find('[class="socials_link"]')
         .should("have.length", 5);
@@ -106,12 +106,12 @@ describe("Checking btns from the header and footer", () => {
     });
 
     it("Checking URLs support", () => {
-      cy.contains("a", "ithillel.ua");
+      cy.contains("a", "ithillel.ua").should("be.visible");
       cy.get('[class="contacts_link display-4"]')
         .should("have.attr", "href")
         .and("not.be.empty")
         .and("not.include", "#");
-      cy.contains("a", "support@ithillel.ua");
+      cy.contains("a", "support@ithillel.ua").should("be.visible");
       cy.get('[class="contacts_link h4"]')
         .should("have.attr", "href")
         .and("not.be.empty")
