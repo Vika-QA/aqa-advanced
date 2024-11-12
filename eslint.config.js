@@ -2,6 +2,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import stylisticJs from "@stylistic/eslint-plugin-js";
 import jest from "eslint-plugin-jest";
+import pluginCypress from 'eslint-plugin-cypress/flat';
 
 export default [
   {
@@ -16,9 +17,11 @@ export default [
   },
   pluginJs.configs.recommended,
   jest.configs["flat/recommended"],
+  pluginCypress.configs.recommended,
   {
     plugins: {
       "@stylistic/js": stylisticJs,
+      "cypress": pluginCypress,
     },
   },
   {
@@ -34,6 +37,7 @@ export default [
       "no-useless-return": "error",
       "template-curly-spacing": ["error", "never"],
       "jest/no-conditional-expect": "off",
+      "jest/expect-expect": "off",
       "no-undef": "warn",
       "no-extra-parens": [
         "error",
