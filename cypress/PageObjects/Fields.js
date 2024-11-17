@@ -102,7 +102,7 @@ export class Fields {
   }
 
   checkUserPagePanel() {
-    cy.url().should("contain", "panel/garage");
+    cy.url().should("eq", `${Cypress.config("baseUrl")}panel/garage`);
   }
 
   notifyUserAlreadyExists() {

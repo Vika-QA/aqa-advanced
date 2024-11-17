@@ -1,11 +1,8 @@
+import { visitSiteWithAuth } from "./lesson18/constants";
+
 describe("Checking btns from the header and footer", () => {
   beforeEach(() => {
-    cy.visit("https://qauto.forstudy.space/", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
+    visitSiteWithAuth();
   });
   context("HEADER", () => {
     it("Checking menu items", () => {
@@ -41,7 +38,6 @@ describe("Checking btns from the header and footer", () => {
       });
     });
     it("Checking btns Sign In / Sign Up / Log In", () => {
-      const baseUrl = "https://qauto.forstudy.space/";
       cy.get('[class*="header_signin"]')
         .should("have.text", "Sign In")
         .and("have.prop", "tagName")
@@ -50,12 +46,12 @@ describe("Checking btns from the header and footer", () => {
         .and("have.prop", "tagName")
         .should("eq", "BUTTON");
       cy.get('[class="header-link -guest"]').click();
-      cy.url().should("include", `${baseUrl}panel/garage`);
+      cy.url().should("eq", `${Cypress.config("baseUrl")}panel/garage`);
       cy.get('[id="userNavDropdown"]').click();
       cy.get('[class="dropdown-item btn btn-link user-nav_link"]')
         .last()
         .click();
-      cy.url().should("include", baseUrl);
+      cy.url().should("eq", Cypress.config("baseUrl"));
     });
   });
   context("FOOTER", () => {
