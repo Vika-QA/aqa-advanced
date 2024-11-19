@@ -2,7 +2,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import stylisticJs from "@stylistic/eslint-plugin-js";
 import jest from "eslint-plugin-jest";
-import pluginCypress from 'eslint-plugin-cypress/flat';
+import pluginCypress from "eslint-plugin-cypress/flat";
 
 export default [
   {
@@ -21,7 +21,7 @@ export default [
   {
     plugins: {
       "@stylistic/js": stylisticJs,
-      "cypress": pluginCypress,
+      cypress: pluginCypress,
     },
   },
   {
