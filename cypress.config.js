@@ -1,4 +1,12 @@
 import { defineConfig } from "cypress";
+import fs from "fs-extra";
+import path from "path";
+
+function getConfigurationByFile(file) {
+  const pathToConfigFile = path.resolve("cypress", "config", `${file}.json`);
+
+  return fs.readJsonSync(pathToConfigFile);
+}
 
 export default defineConfig({
   retries: { runMode: 3, openMode: 3 },
@@ -17,7 +25,25 @@ export default defineConfig({
     specPattern: "lesson17/e2e/**/*.spec.{js,jsx,ts,tsx}",
     // eslint-disable-next-line no-unused-vars
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on("task", {
+        log(message) {
+          console.log(message);
+          return null;
+        },
+      });
+
+      const configFile = config.env.configFile || "dev";
+      const configJson = getConfigurationByFile(configFile);
+      console.log(configJson);
+      console.log(config);
+
+      config = { ...config, ...configJson };
+      config.env = {
+        ...config.env,
+        ...configJson,
+      };
+
+      return config;
     },
   },
 });

@@ -10,8 +10,12 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "prepare": "husky",
+    "cy:open:dev": "npx cypress open --env configFile=dev",
+    "cy:open:prod": "npx cypress open --env configFile=prod",
     "cy:open": "npx cypress open",
-    "cy:run": "npx cypress run"
+    "cy:run": "npx cypress run",
+    "cy:run:dev": "cypress run --env configFile=dev",
+    "cy:run:prod": "cypress run --env configFile=prod"
   },
   "type": "module",
   "author": "Viktoriia Kiselova",
