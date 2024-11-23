@@ -20,10 +20,16 @@ export default defineConfig({
   pageLoadTimeout: 60000,
   fixturesFolder: "aqa-advanced/cypress/fixtures",
   supportFolder: "aqa-advanced/cypress/support",
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: false,
+    json: true,
+  },
   e2e: {
     baseUrl: "https://qauto.forstudy.space/",
     specPattern: "lesson17/e2e/**/*.spec.{js,jsx,ts,tsx}",
-    // eslint-disable-next-line no-unused-vars
     setupNodeEvents(on, config) {
       on("task", {
         log(message) {
