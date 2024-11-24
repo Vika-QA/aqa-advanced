@@ -15,7 +15,9 @@
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
     "cy:run:dev": "cypress run --env configFile=dev",
-    "cy:run:prod": "cypress run --env configFile=prod"
+    "cy:run:prod": "cypress run --env configFile=prod",
+    "playw:test:all": "playwright test",
+    "playw:test:all:headed": "playwright test --headed"
   },
   "type": "module",
   "author": "Viktoriia Kiselova",
@@ -23,13 +25,16 @@
   "devDependencies": {
     "@eslint/js": "^9.11.1",
     "@faker-js/faker": "^9.2.0",
+    "@playwright/test": "^1.49.0",
     "@stylistic/eslint-plugin-js": "^2.8.0",
+    "@types/node": "^22.9.3",
     "chalk": "^5.3.0",
     "cross-env": "^7.0.3",
     "cypress": "^13.15.2",
     "eslint": "^9.14.0",
     "eslint-plugin-cypress": "^4.1.0",
     "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-playwright": "^2.1.0",
     "globals": "^15.10.0",
     "husky": "^9.1.6",
     "jest": "^29.7.0",
