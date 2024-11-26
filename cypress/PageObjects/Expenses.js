@@ -18,6 +18,8 @@ export class Expenses {
     emptyMessage: () => cy.get("[class*=panel-empty_message]"),
     carSelect: () => cy.get('[id="carSelectDropdown"]'),
     btnCloseModalWindow: () => cy.get('[class="close"]'),
+    listExpensesCarAllTable: () => cy.get('[class="table expenses_table"]'),
+    listExpensesCar: () => cy.get('[class="table expenses_table"] tbody tr'),
   };
 
   clickBtnClose() {
@@ -26,6 +28,10 @@ export class Expenses {
 
   visibleCarSelect(assertion) {
     return this.selectors.carSelect().should(assertion);
+  }
+
+  titleCarSelect(name) {
+    return this.selectors.carSelect().contains(name);
   }
 
   visibleAddAnExpense(assertion) {
@@ -78,5 +84,17 @@ export class Expenses {
 
   showEmptyMessage() {
     return this.selectors.emptyMessage().should("exist");
+  }
+
+  isListExpensesCarAllTableVisible() {
+    return this.selectors.listExpensesCarAllTable().should("exist");
+  }
+
+  getListExpensesCar() {
+    return this.selectors.listExpensesCar();
+  }
+
+  getRowExpensesCar(numberOfRow, text) {
+    return cy.get("td").eq(numberOfRow).should("have.text", text);
   }
 }
