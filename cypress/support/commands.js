@@ -19,6 +19,21 @@ Cypress.Commands.add("login", (email, password) => {
   cy.get('[class="btn btn-primary"]').contains("Login").click();
 });
 
+Cypress.Commands.add("createExpense", (cookieValue, expenseData) => {
+  cy.request({
+    method: "POST",
+    url: "api/expenses",
+    body: expenseData,
+    failOnStatusCode: false,
+    headers: {
+      Cookie: `sid=${cookieValue}`,
+    },
+  }).then((response) => {
+    cy.log(response);
+    cy.wrap(response);
+  });
+});
+
 //
 //
 // -- This is a child command --
