@@ -39,6 +39,8 @@ export default [
       "jest/no-conditional-expect": "off",
       "jest/expect-expect": "off",
       "no-undef": "warn",
+      "cypress/no-unnecessary-waiting": "off",
+      "jest/valid-expect": "off",
       "no-extra-parens": [
         "error",
         "all",
