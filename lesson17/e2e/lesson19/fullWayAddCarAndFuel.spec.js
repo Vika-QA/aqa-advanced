@@ -1,6 +1,7 @@
 import { Expenses } from "../../../cypress/PageObjects/Expenses";
 import { Garage } from "../../../cypress/PageObjects/Garage";
 import { visitSiteWithAuth } from "../lesson18/constants";
+import { addRandomCarToGarage } from "../lesson20/constants";
 
 const garage = new Garage();
 const expenses = new Expenses();
@@ -77,41 +78,14 @@ describe("Full Way", () => {
       addSpecificCarToGarage();
       garage.showInfoAboutCar().then(($cars) => {
         const currentCarCount = $cars.length;
-        const carData = {
-          Audi: ["TT", "R8", "Q7", "A6", "A8"],
-          BMW: ["3", "5", "X5", "X6", "Z3"],
-          Fiat: ["Panda", "Scudo", "Punto", "Ducato", "Palio"],
-          Ford: ["Fiesta", "Focus", "Mondeo", "Sierra", "Fusion"],
-          Porsche: ["911", "Panamera", "Cayenne"],
-        };
-
         if (currentCarCount < 25) {
           const carsToAdd = 25 - currentCarCount;
           for (let i = 1; i <= carsToAdd; i++) {
-            const brands = Object.keys(carData);
-            const randomBrand =
-              brands[Math.floor(Math.random() * brands.length)];
-
-            const models = carData[randomBrand];
-            const randomModel =
-              models[Math.floor(Math.random() * models.length)];
-
-            garage.clickAddCar();
-            // Without it Brand's IDs overlap (2 ones IDs) and the test does not select the correct selector
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(500);
-            garage.chooseBrand(randomBrand);
-            garage.chooseModel(randomModel);
-            // random miles from 100 to 10000
-            garage.addMileage(
-              Math.floor(Math.random() * (Math.floor(10001) - 100) + 100)
-            );
-            garage.clickAddCarPopup();
+            addRandomCarToGarage();
           }
         }
         garage.showInfoAboutCar().should("have.length", 25);
         garage.clickAddCar();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(500);
         // Add 26nd car, when limit car is 25
         garage.chooseBrand("Audi");

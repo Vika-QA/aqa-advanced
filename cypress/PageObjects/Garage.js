@@ -74,8 +74,6 @@ export class Garage {
 
       this.selectors.removeCar().click({ force: true });
       this.selectors.finishRemove().click({ force: true });
-
-      // eslint-disable-next-line cypress/no-unnecessary-waiting
       cy.wait(500);
     });
   }
