@@ -28,9 +28,6 @@ Cypress.Commands.add("createExpense", (cookieValue, expenseData) => {
     headers: {
       Cookie: `sid=${cookieValue}`,
     },
-  }).then((response) => {
-    cy.log(response);
-    cy.wrap(response);
   });
 });
 

@@ -1,7 +1,6 @@
 import { Expenses } from "../../../cypress/PageObjects/Expenses";
 import { Garage } from "../../../cypress/PageObjects/Garage";
 import { visitSiteWithAuth } from "../lesson18/constants";
-import { addRandomCarToGarage } from "../lesson20/constants";
 
 const garage = new Garage();
 const expenses = new Expenses();
@@ -81,7 +80,7 @@ describe("Full Way", () => {
         if (currentCarCount < 25) {
           const carsToAdd = 25 - currentCarCount;
           for (let i = 1; i <= carsToAdd; i++) {
-            addRandomCarToGarage();
+            garage.addRandomCarToGarage();
           }
         }
         garage.showInfoAboutCar().should("have.length", 25);

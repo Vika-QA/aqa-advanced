@@ -1,3 +1,9 @@
+import {
+  carData,
+  randomDataCar,
+  randomNumberFrom10to100,
+} from "../../lesson17/e2e/lesson20/constants";
+
 export class Garage {
   selectors = {
     addCarBtn: () => cy.get('[class="btn btn-primary"]').contains("Add car"),
@@ -61,6 +67,17 @@ export class Garage {
 
   isSidebarVisible() {
     return this.selectors.sidebar().should("to.be.visible");
+  }
+
+  addRandomCarToGarage() {
+    const { randomBrand, randomModel } = randomDataCar(carData);
+    this.clickAddCar();
+    // Without it Brand's IDs overlap (2 ones IDs) and the test does not select the correct selector
+    cy.wait(500);
+    this.chooseBrand(randomBrand);
+    this.chooseModel(randomModel);
+    this.addMileage(randomNumberFrom10to100());
+    this.clickAddCarPopup();
   }
 
   deleteAllCars() {

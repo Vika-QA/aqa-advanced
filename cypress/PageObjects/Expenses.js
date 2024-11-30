@@ -94,7 +94,7 @@ export class Expenses {
     return this.selectors.listExpensesCar();
   }
 
-  getRowExpensesCar(numberOfRow, text) {
-    return cy.get("td").eq(numberOfRow).should("have.text", text);
+  getRowExpensesCar(index, text) {
+    return cy.get("td").eq(index).should("have.text", text);
   }
 }
