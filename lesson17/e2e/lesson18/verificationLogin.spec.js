@@ -1,4 +1,3 @@
-/* eslint-disable jest/valid-expect */
 import { Fields } from "../../../cypress/PageObjects/Fields";
 import { email, password, visitSiteWithAuth } from "./constants";
 

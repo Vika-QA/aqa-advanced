@@ -29,7 +29,6 @@ describe("Checking btns from the header and footer", () => {
         cy.window()
           .should("have.prop", "scrollY")
           .and("be.greaterThan", firstPosition);
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(500);
         cy.get('[class="btn header-link"]').contains("Contacts").click();
         cy.window()
