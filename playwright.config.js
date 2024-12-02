@@ -11,7 +11,7 @@ import { defineConfig, devices } from "@playwright/test";
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "lesson23-24/e2e/tests",
   testMatch: "**/*.@(spec|test).?(c|m)[jt]s?(x)",
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -26,7 +26,11 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "https://playwright.dev/",
+    baseURL: "https://qauto.forstudy.space/",
+    httpCredentials: {
+      username: "guest",
+      password: "welcome2qauto",
+    },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
