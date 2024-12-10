@@ -27,6 +27,7 @@
     "@faker-js/faker": "^9.2.0",
     "@playwright/test": "^1.49.0",
     "@stylistic/eslint-plugin-js": "^2.8.0",
+    "@testomatio/reporter": "^1.6.5",
     "@types/node": "^22.9.3",
     "chalk": "^5.3.0",
     "cross-env": "^7.0.3",
