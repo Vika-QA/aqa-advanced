@@ -32,6 +32,7 @@ export default defineConfig({
       },
     ],
   ],
+  timeout: 3000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -50,8 +51,16 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      testMatch: "*.setup.js",
+    },
+    {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: "session-storage.json",
+      },
+      dependencies: ["setup"],
     },
 
     // {
