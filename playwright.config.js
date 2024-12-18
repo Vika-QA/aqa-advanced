@@ -12,7 +12,7 @@ import "dotenv/config";
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: "lesson23-24/e2e/tests",
+  testDir: "lesson23-24/e2e/",
   testMatch: "**/*.@(spec|test).?(c|m)[jt]s?(x)",
   /* Run tests in files in parallel */
   fullyParallel: false,
