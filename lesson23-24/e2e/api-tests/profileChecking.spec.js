@@ -22,7 +22,6 @@ test.describe("Mock body user", () => {
       });
     });
     await page.goto("panel/profile");
-    await page.pause();
     const realResponse = await page.request.get("api/users/profile");
     const realData = await realResponse.json();
     const userName = `${mockData.name} ${mockData.lastName}`;
