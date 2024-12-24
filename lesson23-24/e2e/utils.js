@@ -6,3 +6,9 @@ export const createCar = async (carBrandId, carModelId, mileage) => {
     data: { carBrandId, carModelId, mileage },
   });
 };
+
+export const createCleanContext = async (browser, storageStatePath) => {
+  const context = await browser.newContext({ storageState: storageStatePath });
+  await context.clearCookies();
+  return context;
+};

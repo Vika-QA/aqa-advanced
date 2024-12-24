@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { RegisterForm } from "../../PageObjectModel";
+import { createCleanContext } from "../utils";
 
 /** @type {RegisterForm} */
 let registerForm;
@@ -11,9 +12,12 @@ const lastName = "O'ha ra";
 const email = "aqa-supertest123woow@qwe.qwe";
 const password = "Qa123123!!!";
 const rePassword = "Qa123123!!!";
+const storageStatePath = "session-storage.json";
 
 test.describe("Checking validation register field", () => {
-  test.beforeEach(async ({ page, context }) => {
+  test.beforeEach(async ({ browser }) => {
+    const context = await createCleanContext(browser, storageStatePath);
+    const page = await context.newPage();
     registerForm = new RegisterForm(page, context);
     await registerForm.navigateToPage();
     await registerForm.isVisiblebtnSignUp();
