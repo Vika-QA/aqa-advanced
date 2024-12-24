@@ -14,6 +14,7 @@
     "cy:open:prod": "npx cypress open --env configFile=prod",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
+    "cy:run:firefox": "cypress run --browser firefox",
     "cy:run:dev": "cypress run --env configFile=dev",
     "cy:run:prod": "cypress run --env configFile=prod",
     "playw:test:all": "playwright test",
