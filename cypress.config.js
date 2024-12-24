@@ -38,7 +38,7 @@ export default defineConfig({
         },
       });
 
-      const configFile = config.env.configFile || "dev";
+      const configFile = config.env.configFile || "prod";
       const configJson = getConfigurationByFile(configFile);
       console.log(configJson);
       console.log(config);
