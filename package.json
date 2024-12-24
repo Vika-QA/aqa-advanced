@@ -17,6 +17,8 @@
     "cy:run:dev": "cypress run --env configFile=dev",
     "cy:run:prod": "cypress run --env configFile=prod",
     "playw:test:all": "playwright test",
+    "playw:test:chrome": "playwright test --project=chromium",
+    "playw:test:firefox": "playwright test --project=firefox",
     "playw:test:all:headed": "playwright test --headed"
   },
   "type": "module",

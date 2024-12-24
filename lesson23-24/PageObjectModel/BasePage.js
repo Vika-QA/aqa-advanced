@@ -9,6 +9,7 @@ export default class BasePage {
   }
 
   async navigateToPage() {
-    await this.page.goto(this.url);
+    // chrome more faster, but firefox need more time to load all the page
+    await this.page.goto(this.url, { waitUntil: "load", timeout: 5000 });
   }
 }
