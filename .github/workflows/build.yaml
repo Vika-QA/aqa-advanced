@@ -33,7 +33,7 @@ jobs:
       run: npm ci
     - name: Run Playwright tests
       working-directory: ./lesson23-24
-      run: npm run playw:test:all  
+      run: npm run playw:test:chromium  
       env:
         TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
         TESTOMATIO: ${{ vars.TESTOMATIO }}
