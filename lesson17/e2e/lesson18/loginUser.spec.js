@@ -1,6 +1,6 @@
 import { Fields } from "../../../cypress/PageObjects/Fields";
 import "../../../cypress/support/commands";
-import { email, password, visitSiteWithAuth } from "./constants";
+import { visitSiteWithAuth } from "./constants";
 
 const fields = new Fields();
 describe("Login tests", () => {
@@ -9,7 +9,7 @@ describe("Login tests", () => {
   });
 
   it("User can log in with valid credentials", () => {
-    cy.login(email, password);
+    cy.login(Cypress.env("email"), Cypress.env("password"));
     fields.checkUserPagePanel();
     fields.showSuccessfullyLoginUser();
   });
