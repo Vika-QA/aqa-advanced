@@ -49,6 +49,20 @@ jobs:
           ./playwright-report/
           ./test-results/
         retention-days: 30
-
+  test-cypress: 
+    name: 'Cypress tests'
+    needs: lint
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node-22.12.0-chrome-131.0.6778.139-1-ff-133.0.3-edge-131.0.2903.99-1
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependecies
+        working-directory: ./lesson17
+        run: npm ci
+      - name: Run Cypress tests
+        working-directory: ./lesson17
+        run: npm run cy:run:prod  --browser chrome
 
         

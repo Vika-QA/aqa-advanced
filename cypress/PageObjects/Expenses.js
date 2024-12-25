@@ -83,7 +83,7 @@ export class Expenses {
   }
 
   showEmptyMessage() {
-    return this.selectors.emptyMessage().should("exist");
+    return this.selectors.emptyMessage().should("not.exist");
   }
 
   isListExpensesCarAllTableVisible() {
