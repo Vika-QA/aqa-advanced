@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 export const visitSiteWithAuth = () => {
   cy.visit("/", {
     auth: {
@@ -8,5 +10,5 @@ export const visitSiteWithAuth = () => {
 };
 
 // user already logged with this email, so if you want to create new one, pls change the email
-export const email = "testsupertestwoooow@qwe.qwe";
+export const email = faker.internet.email();
 export const password = "Test123!";
