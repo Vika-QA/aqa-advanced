@@ -8,5 +8,5 @@ export const visitSiteWithAuth = () => {
 };
 
 // user already logged with this email, so if you want to create new one, pls change the email
-export const email = "te77gt6ddggggdstwoooow@qwe.qwe";
+export const email = "te77g4twoooow@qwe.qwe";
 export const password = "Test123!";

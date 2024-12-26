@@ -50,7 +50,7 @@ jobs:
           ./test-results/
         retention-days: 30
   test-cypress: 
-    name: 'Cypress tests'
+    name: 'Cypress E2E Tests'
     needs: lint
     runs-on: ubuntu-latest
     container:
