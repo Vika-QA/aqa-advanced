@@ -12,7 +12,7 @@ describe("[UI] Checking Fuel Expenses tab", () => {
   it("Checking info on the tab", () => {
     expenses.clickSidebar("Fuel expenses");
     expenses.isFuelExpensesTextVisible();
-    expenses.showEmptyMessage();
+    // expenses.showEmptyMessage(); it is not relevant compare precondition with api tests
     expenses.visibleAddAnExpense("to.be.visible");
   });
 });
