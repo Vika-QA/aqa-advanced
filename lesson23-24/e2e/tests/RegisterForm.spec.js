@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { RegisterForm } from "../../PageObjectModel";
 import { createCleanContext } from "../utils";
+import { faker } from "@faker-js/faker";
 
 /** @type {RegisterForm} */
 let registerForm;
@@ -9,7 +10,7 @@ const fakerUser = RegisterForm.generateFakerUser();
 const longPassword = "VeryyyyyLoooooongPaaaasswoooord!!!!!!!!";
 const firstName = "Scarlet-Scarlet";
 const lastName = "O'ha ra";
-const email = "aq0rhh169052376qazqazwoow@qwe.qwe";
+const email = faker.internet.email();
 const password = "Qa123123!!!";
 const rePassword = "Qa123123!!!";
 const storageStatePath = "session-storage.json";
