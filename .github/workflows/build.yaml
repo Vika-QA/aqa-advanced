@@ -1,56 +1,54 @@
 name: CI Testing
 on:
-  schedule: 
-    - cron: "0 8 * * *"
   push:
     branches:
       - "**"
   pull_request:
-    types: ['opened']
+    types: ["opened"]
 jobs:
-  lint: 
-    name: 'Lint tests folder'
+  lint:
+    name: "Lint tests folder"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-    - name: Install dependecies
-      working-directory: ./lesson23-24
-      run: | 
-        echo "LINT TESTS"
-        npm ci
-    - name: Run lint
-      working-directory: ./lesson23-24
-      run: npm run lint
-  tests-playwright: 
-    name: 'Playwright E2E Tests'
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install dependecies
+        working-directory: ./lesson23-24
+        run: |
+          echo "LINT TESTS"
+          npm ci
+      - name: Run lint
+        working-directory: ./lesson23-24
+        run: npm run lint
+  tests-playwright:
+    name: "Playwright E2E Tests"
     needs: lint
     if: success() || failure()
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.49.1-jammy
     steps:
-    - uses: actions/checkout@v3
-    - name: Install dependecies
-      run: npm ci
-    - name: Run Playwright tests
-      working-directory: ./lesson23-24
-      run: npm run playw:test:chromium  
-      env:
-        TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
-        TESTOMATIO: ${{ vars.TESTOMATIO }}
-        user: ${{ vars.user }}
-        password: ${{ vars.password }}  
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report-e2e
-        path: |
-          ./playwright-report/
-          ./test-results/
-        retention-days: 30
-  test-cypress: 
-    name: 'Cypress E2E Tests'
+      - uses: actions/checkout@v3
+      - name: Install dependecies
+        run: npm ci
+      - name: Run Playwright tests
+        working-directory: ./lesson23-24
+        run: npm run playw:test:chromium
+        env:
+          TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
+          TESTOMATIO: ${{ vars.TESTOMATIO }}
+          user: ${{ vars.user }}
+          password: ${{ vars.password }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report-e2e
+          path: |
+            ./playwright-report/
+            ./test-results/
+          retention-days: 30
+  test-cypress:
+    name: "Cypress E2E Tests"
     needs: lint
     runs-on: ubuntu-latest
     container:
@@ -68,5 +66,5 @@ jobs:
         with:
           name: cypress-report-e2e
           path: |
-            ./cypress/reports   
+            ./cypress/reports
           retention-days: 30
